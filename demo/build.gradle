@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group 'org.springframework'
+version '5.3.14-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(project(":spring-context"))
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    // lombok依赖
+    annotationProcessor 'org.projectlombok:lombok:1.18.2'
+    compileOnly 'org.projectlombok:lombok:1.18.2'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.2'
+    testCompileOnly 'org.projectlombok:lombok:1.18.2'
+
+    implementation("javax.annotation:javax.annotation-api")
+    //aspectj依赖
+    implementation("org.aspectj:aspectjrt:1.9.7")
+    implementation("org.aspectj:aspectjtools:1.9.7")
+    implementation("org.aspectj:aspectjweaver:1.9.7")
+
+    implementation(project(":spring-jdbc"))
+
+    implementation("mysql:mysql-connector-java:5.1.47")
+    implementation(project(":spring-web"))
+    implementation(project(":spring-webmvc"))
+
+    // https://mvnrepository.com/artifact/com.alibaba.nacos/nacos-spring-context
+    implementation 'com.alibaba.nacos:nacos-spring-context:1.1.1'
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
